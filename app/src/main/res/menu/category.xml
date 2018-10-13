@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_category_new"
+        android:title="@string/menu_category_new" />
+    <item
+        android:id="@+id/menu_category_delete"
+        android:title="@string/menu_category_delete" />
+    <item
+        android:id="@+id/menu_category_move_up"
+        android:title="@string/menu_category_move_up" />
+    <item
+        android:id="@+id/menu_category_move_down"
+        android:title="@string/menu_category_move_down" />
+    <item
+        android:id="@+id/menu_category_preferences"
+        android:title="@string/menu_category_preferences" />
+
+</menu>

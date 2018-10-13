@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_batch_sequence"
+        android:title="@string/menu_action_button_batch_sequence" />
+
+    <item
+        android:id="@+id/menu_open_category"
+        android:title="@string/menu_action_button_open_category" />
+    
+    <item
+        android:id="@+id/menu_save_category"
+        android:title="@string/menu_action_button_save_category" />
+
+    <item
+        android:id="@+id/menu_save_all"
+        android:title="@string/menu_save_all"/>
+
+    <item
+        android:id="@+id/menu_offline_mode"
+        android:checkable="true"
+        android:title="@string/menu_offline_mode"/>
+
+</menu>

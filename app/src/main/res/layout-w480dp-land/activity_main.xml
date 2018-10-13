@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ugetdm.uget.MainActivity" >
+    <!-- 
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+     -->
+
+    <!-- anchor view for menu of home button in action bar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/home_button_menu_anchor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true" />
+        <View
+            android:id="@+id/main_menu_anchor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <fragment
+            android:id="@+id/category_filter"
+            android:name="com.ugetdm.uget.CategoryFilter"
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/category_filter" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="fill_parent"
+            android:background="#333333" />
+
+        <fragment
+            android:id="@+id/download_filter_list"
+            android:name="com.ugetdm.uget.DownloadFilteredList"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            tools:layout="@layout/download_filtered_list" />
+    </LinearLayout>
+
+</LinearLayout>

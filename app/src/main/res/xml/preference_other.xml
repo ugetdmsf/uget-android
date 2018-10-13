@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="preference_sort"
+        android:title="@string/preference_sort"
+        android:summary="@string/preference_sort_summary"
+        android:entries="@array/preference_sort_entrie_array"
+        android:entryValues="@array/preference_sort_entrie_values"
+        android:defaultValue="@string/preference_sort_entrie_default"
+        android:dialogTitle="@string/preference_sort" />
+
+    <ListPreference
+        android:key="preference_plugin_order"
+        android:title="@string/preference_plugin_order"
+        android:summary="@string/preference_plugin_order_summary"
+        android:entries="@array/preference_plugin_order_entrie_array"
+        android:entryValues="@array/preference_plugin_order_entrie_values"
+        android:defaultValue="@string/preference_plugin_order_entrie_default"
+        android:dialogTitle="@string/preference_plugin_order" />
+
+    <EditTextPreference
+        android:defaultValue="1"
+        android:numeric="integer"
+        android:key="preference_autosave_interval"
+        android:title="@string/preference_autosave_interval"
+        android:summary="@string/preference_autosave_interval_summary"
+        android:dialogTitle="@string/preference_autosave_interval_summary" />
+
+</PreferenceScreen>

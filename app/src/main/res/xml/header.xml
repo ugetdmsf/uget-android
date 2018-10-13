@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$UiSettingFragment"
+        android:title="@string/preference_ui" />
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$ClipboardSettingFragment"
+        android:title="@string/preference_clipboard" />
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$SpeedSettingFragment"
+        android:title="@string/preference_speed" />
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$Aria2SettingFragment"
+        android:title="@string/preference_aria2" />
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$MediaSettingFragment"
+        android:title="@string/preference_media" />
+
+    <header
+        android:fragment="com.ugetdm.uget.SettingActivity$OtherSettingFragment"
+        android:title="@string/preference_other" />
+
+</preference-headers>

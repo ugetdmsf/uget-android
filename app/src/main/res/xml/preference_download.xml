@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:singleLine="true"
+        android:key="preference_download_uri"
+        android:title="@string/dnode_uri"
+        android:summary=" " />
+
+    <EditTextPreference
+        android:singleLine="true"
+        android:key="preference_download_mirrors"
+        android:title="@string/dnode_mirrors"
+        android:summary=" " />
+
+    <EditTextPreference
+        android:singleLine="true"
+        android:key="preference_download_file"
+        android:title="@string/dnode_file"
+        android:summary=" " />
+
+    <EditTextPreference
+        android:singleLine="true"
+        android:key="preference_download_folder"
+        android:title="@string/dnode_folder"
+        android:summary=" " />
+
+    <EditTextPreference
+        android:key="preference_download_referrer"
+        android:singleLine="true"
+        android:summary=" "
+        android:title="@string/dnode_referrer" />
+
+    <EditTextPreference
+        android:defaultValue="1"
+        android:numeric="integer"
+        android:singleLine="true"
+        android:key="preference_download_connections"
+        android:title="@string/dnode_connections"
+        android:summary="Current value is 1" />
+
+    <EditTextPreference
+        android:key="preference_download_user"
+        android:singleLine="true"
+        android:summary=" "
+        android:title="@string/dnode_user" />
+
+    <EditTextPreference
+        android:singleLine="true"
+        android:key="preference_download_password"
+        android:title="@string/dnode_password"
+        android:summary=" " />
+
+    <PreferenceCategory android:title="@string/dnode_proxy_type">
+
+        <ListPreference
+            android:key="preference_proxy_type"
+            android:title="@string/dnode_proxy_type"
+            android:summary=" "
+            android:entries="@array/dnode_proxy_type"
+            android:entryValues="@array/dnode_proxy_type_values"
+            android:defaultValue="0"
+            android:dialogTitle="@string/dnode_proxy_type" />
+
+        <EditTextPreference
+            android:singleLine="true"
+            android:key="preference_proxy_host"
+            android:title="@string/dnode_proxy_host"
+            android:summary=" " />
+
+        <EditTextPreference
+            android:defaultValue="80"
+            android:numeric="integer"
+            android:singleLine="true"
+            android:key="preference_proxy_port"
+            android:title="@string/dnode_proxy_port"
+            android:summary="Current value is 80" />
+
+        <EditTextPreference
+            android:singleLine="true"
+            android:key="preference_proxy_user"
+            android:title="@string/dnode_proxy_user"
+            android:summary=" " />
+
+        <EditTextPreference
+            android:singleLine="true"
+            android:key="preference_proxy_password"
+            android:title="@string/dnode_proxy_password"
+            android:summary=" " />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'uget'
+            keyPassword 'enc66rmh76'
+            storeFile file('D:/Projects/uget-related/uget.keystore')
+            storePassword 'enc66rmh76'
+        }
+    }
+    lintOptions {
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.ugetdm.uget"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 38
+        versionName '1.5.3'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+            ndk {
+                // Specifies the ABI configurations of your native
+                // libraries Gradle should build and package with your APK.
+                // armeabi-v7a, arm64-v8a, x86, x86_64, mips, mips64
+                abiFilters 'armeabi-v7a', 'x86'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFile 'D:/Projects/uget-android/app/proguard-rules.pro'
+        }
+    }
+    flavorDimensions 'tier'
+    productFlavors {
+        noads {
+            dimension 'tier'
+            applicationId = "com.ugetdm.uget.noads"
+            resValue "string", "app_label", "uGet"
+            buildConfigField "boolean", "HAVE_ADS", "false"
+        }
+        ads {
+            dimension 'tier'
+            applicationId = "com.ugetdm.uget"
+            resValue "string", "app_label", "uGet free"
+            buildConfigField "boolean", "HAVE_ADS", "true"
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    buildToolsVersion '27.0.3'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:25.2.0'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.android.gms:play-services-ads:9.8.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation project(':aFileDialog')
+}

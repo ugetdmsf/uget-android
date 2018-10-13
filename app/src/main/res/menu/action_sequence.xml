@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_category"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@mipmap/ic_action_category"
+        android:title="@string/menu_category"/>
+    <item
+        android:id="@+id/menu_action_startup_mode"
+        android:icon="@android:drawable/arrow_down_float"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_download_startup_mode" />
+    <item
+        android:id="@+id/menu_action_ok"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@android:string/ok" />
+</menu>
