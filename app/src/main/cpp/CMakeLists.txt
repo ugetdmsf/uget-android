@@ -22,7 +22,7 @@ add_library( uget-jni
 
              Ccj.c
              Core.c
-             Data.c
+             Info.c
              Node.c
              Rpc.c
              Sequence.c

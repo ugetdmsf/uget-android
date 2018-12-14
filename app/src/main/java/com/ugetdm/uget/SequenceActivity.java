@@ -20,7 +20,7 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.ugetdm.uget.lib.Data;
+import com.ugetdm.uget.lib.Info;
 import com.ugetdm.uget.lib.Node;
 import com.ugetdm.uget.lib.Sequence;
 
@@ -107,7 +107,7 @@ public class SequenceActivity extends Activity {
                 for (int index = 0; index < nItem;  index++) {
                     pointer = Node.getNthChild(app.core.nodeReal, index);
                     // groupId,  itemId,  order,  string
-                    menu.add(0, index, index, Data.getName(Node.data(pointer))).setChecked(index == nthCategoryReal);
+                    menu.add(0, index, index, Info.getName(Node.data(pointer))).setChecked(index == nthCategoryReal);
                 }
                 popupMenu.setOnMenuItemClickListener(
                         new PopupMenu.OnMenuItemClickListener() {

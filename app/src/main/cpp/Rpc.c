@@ -200,7 +200,7 @@ Java_com_ugetdm_uget_lib_Rpc_getCommand (JNIEnv* env, jobject thiz, jobject jreq
 			uriArray);
 	// Download info;
 	node = uget_node_new (NULL);
-	uget_option_value_to_data (&cmd->value, node->data);
+	uget_option_value_to_info (&cmd->value, node->info);
 	getDownloadData (env, (jlong)(intptr_t) node,
 			(*env)->GetObjectField (env, jObject,
 					(*env)->GetFieldID (env, jClass, "info",

@@ -84,7 +84,7 @@ public class CategoryAdapter extends BaseAdapter implements SpinnerAdapter {
         else {
             nodePointer = Node.getNthChild(pointer, position - 1);
             dataPointer = Node.data(nodePointer);
-            textView.setText (Data.getName(dataPointer));
+            textView.setText (Info.getName(dataPointer));
         }
         textViewQuantity.setText(Integer.toString(Node.nChildren(nodePointer)));
 

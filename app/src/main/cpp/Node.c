@@ -108,7 +108,7 @@ Java_com_ugetdm_uget_lib_Node_data (JNIEnv* env, jclass nodeClass, jlong pointer
 	UgetNode*  node;
 
 	node = (UgetNode*)(intptr_t) pointer;
-	return (jlong)(intptr_t) node->data;
+	return (jlong)(intptr_t) node->info;
 }
 
 // Java_com_ugetdm_uget_lib_Node_getPosition

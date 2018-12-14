@@ -89,12 +89,12 @@ public class DownloadAdapter extends BaseAdapter {
         nodePointer = Node.getNthChild(pointer, position);
         if (nodePointer != 0) {
             dataPointer = Node.data(nodePointer);
-            state = Data.getGroup(dataPointer);
-            name = Data.getName(dataPointer);
-            message = Data.getMessage(dataPointer);
+            state = Info.getGroup(dataPointer);
+            name = Info.getName(dataPointer);
+            message = Info.getMessage(dataPointer);
             // get progress info
             progress = new Progress();
-            hasProgress = Data.get(dataPointer, progress);
+            hasProgress = Info.get(dataPointer, progress);
         }
 
         // get imageView(status icon) & textView(name)

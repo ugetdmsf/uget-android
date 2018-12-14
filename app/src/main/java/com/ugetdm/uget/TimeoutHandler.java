@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.ugetdm.uget.lib.Core;
-import com.ugetdm.uget.lib.Data;
+import com.ugetdm.uget.lib.Info;
 import com.ugetdm.uget.lib.Node;
 import com.ugetdm.uget.lib.Rpc;
 
@@ -318,7 +318,7 @@ public class TimeoutHandler {
                     // create node and add it
                     command.data.uri = command.uris[index];
                     dNodePointer = Node.create();
-                    Data.set(Node.data(dNodePointer), command.data);
+                    Info.set(Node.data(dNodePointer), command.data);
                     app.core.addDownload(dNodePointer, cNodePointer, false);
                 }
                 // notify

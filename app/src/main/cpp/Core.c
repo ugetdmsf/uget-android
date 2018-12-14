@@ -451,10 +451,10 @@ Java_com_ugetdm_uget_lib_Core_addDownloadSequence (JNIEnv* env, jobject thiz, jo
 
 	for (link = uriList.head;  link;  link = link->next) {
 		dnode = uget_node_new (NULL);
-		temp.common = ug_data_realloc (dnode->data, UgetCommonInfo);
+		temp.common = ug_info_realloc (dnode->info, UgetCommonInfo);
 		temp.common->uri = ug_strdup (link->data);
 		if (startupMode == 1) {
-            temp.relation = ug_data_realloc(dnode->data, UgetRelationInfo);
+            temp.relation = ug_info_realloc(dnode->info, UgetRelationInfo);
             temp.relation->group = UGET_GROUP_PAUSED;
         }
 		uget_app_add_download (app, dnode, (UgetNode*)(intptr_t)cNodePointer, TRUE);

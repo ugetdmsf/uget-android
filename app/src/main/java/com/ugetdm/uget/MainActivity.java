@@ -647,8 +647,8 @@ if(myCurrentActivity.getResources().getConfiguration().orientation == Configurat
             if (app.nthCategory == 0)
                 cnodePointer = Node.getNthChild(app.core.nodeReal, 0);
 
-            Data.get(Node.data(cnodePointer), downloadData);
-            Data.set(Node.data(dnodePointer), downloadData);
+            Info.get(Node.data(cnodePointer), downloadData);
+            Info.set(Node.data(dnodePointer), downloadData);
             downloadData = null;
         }
         else {
@@ -889,9 +889,9 @@ if(myCurrentActivity.getResources().getConfiguration().orientation == Configurat
 
             categoryData = new Category();
             newPointer = Node.create();
-            Data.get(Node.data(cPointer), categoryData);
+            Info.get(Node.data(cPointer), categoryData);
             categoryData.name = "Copy of " + categoryData.name;
-            Data.set(Node.data(newPointer), categoryData);
+            Info.set(Node.data(newPointer), categoryData);
             cPointer = newPointer;
             categoryData = null;
         }

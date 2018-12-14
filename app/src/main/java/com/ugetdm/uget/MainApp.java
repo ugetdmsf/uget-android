@@ -349,7 +349,7 @@ public class MainApp extends Application {
         logAppend ("App.createDefaultCategory() create.");
         cNodePointer = Node.create();
         logAppend ("App.createDefaultCategory() setData.");
-        Data.set(Node.data(cNodePointer), categoryData);
+        Info.set(Node.data(cNodePointer), categoryData);
         categoryData = null;
 
         logAppend ("App.createDefaultCategory() addCategoryAndNotify.");
@@ -493,15 +493,15 @@ public class MainApp extends Application {
         pointer = Node.data(pointer);
 
         downloadData = new Download();
-        Data.get(pointer, downloadData);
+        Info.get(pointer, downloadData);
         path = new String();
         if (downloadData.folder != null)
             path += downloadData.folder + File.separator;
         // filename
         if (downloadData.file != null)
             path += downloadData.file;
-        else if (Data.getName(pointer) != null)
-            path += Data.getName(pointer);
+        else if (Info.getName(pointer) != null)
+            path += Info.getName(pointer);
         else
             return null;
 
@@ -657,7 +657,7 @@ public class MainApp extends Application {
         dNodePointer = Node.getNthChild(cNodePointer, nth);
         if (dNodePointer == 0)
             return false;
-        if ((Data.getGroup(Node.data(dNodePointer)) & Node.Group.active) > 0)
+        if ((Info.getGroup(Node.data(dNodePointer)) & Node.Group.active) > 0)
             return false;
 
         return queueNthDownload(nth);
@@ -670,7 +670,7 @@ public class MainApp extends Application {
 
         // get download node from category node
         nodePointer = Node.getNthChild(downloadAdapter.pointer, nthDownload);
-        result = Data.getPriority(Node.data(nodePointer));
+        result = Info.getPriority(Node.data(nodePointer));
         return result;
     }
 
@@ -681,7 +681,7 @@ public class MainApp extends Application {
         // get download from category
         nodePointer = Node.getNthChild(downloadAdapter.pointer, nth);
         if (nodePointer != 0)
-            Data.setPriority(Node.data(nodePointer), priority);
+            Info.setPriority(Node.data(nodePointer), priority);
     }
 
     public long getNthDownloadNode(int nthDownload) {

@@ -62,8 +62,8 @@ public class NodeActivity extends Activity {
 		isCreation = bundle.getBoolean("isCreation");
 		isMultiple = bundle.getBoolean("isMultiple");
 		dataPointer = Node.data(nodePointer);
-		Data.get(dataPointer, categoryData);
-		Data.ref(dataPointer);
+		Info.get(dataPointer, categoryData);
+		Info.ref(dataPointer);
 
 		initView();
         initAd();
@@ -74,7 +74,7 @@ public class NodeActivity extends Activity {
 	protected void onDestroy() {
 		nthCategoryReal = -1;  // reset this static value
 		super.onDestroy();
-		Data.unref(dataPointer);
+		Info.unref(dataPointer);
         app.adManager.destroy(adView);
     }
 
@@ -135,7 +135,7 @@ public class NodeActivity extends Activity {
 					pointer = Node.getNthChild(app.core.nodeReal, index);
 					pointer = Node.data(pointer);
 					// groupId,  itemId,  order,  string
-					menu.add(0, index, index, Data.getName(pointer)).setChecked(index == nthCategoryReal);
+					menu.add(0, index, index, Info.getName(pointer)).setChecked(index == nthCategoryReal);
 				}
 				popupMenu.setOnMenuItemClickListener(
 						new PopupMenu.OnMenuItemClickListener() {
@@ -146,9 +146,9 @@ public class NodeActivity extends Activity {
                                 long pointer = Node.getNthChild(app.core.nodeReal, nthCategoryReal);
                                 if (pointer != 0) {
                                 	pointer = Node.data(pointer);
-                                    Data.get(pointer, categoryData);
+									Info.get(pointer, categoryData);
                                     categoryData.name = null;
-                                    Data.set(dataPointer, categoryData);
+									Info.set(dataPointer, categoryData);
                                     setSetting(categoryData, true);
                                 }
 								return true;
@@ -294,14 +294,14 @@ public class NodeActivity extends Activity {
 		}
 
 		if (isCategory) {
-			Data.set(dataPointer, categoryData);
+			Info.set(dataPointer, categoryData);
 			if (isCreation)
 				app.addCategoryAndNotify(nodePointer);
 			else
 				app.categoryAdapter.notifyDataSetChanged();
 		}
 		else {
-			Data.set(dataPointer, (Download)categoryData);
+			Info.set(dataPointer, (Download)categoryData);
 			if (isCreation) {
 				EditText editText;
 				editText = (EditText) findViewById(R.id.dnode_uri_editor);
@@ -340,11 +340,11 @@ public class NodeActivity extends Activity {
 				public boolean onMenuItemClick(MenuItem item) {
 					switch (item.getItemId()) {
 					case R.id.menu_download_start_auto:
-						Data.setGroup(dataPointer, 0);
+						Info.setGroup(dataPointer, 0);
 						break;
 
 					case R.id.menu_download_start_manually:
-						Data.setGroup(dataPointer, Node.Group.pause);
+						Info.setGroup(dataPointer, Node.Group.pause);
 						break;
 					}
 					return true;
@@ -353,7 +353,7 @@ public class NodeActivity extends Activity {
 		);
 
 		Menu menu  = popupMenu.getMenu();
-		int  state = Data.getGroup(dataPointer);
+		int  state = Info.getGroup(dataPointer);
 		switch (state) {
 		case Node.Group.pause:
 			menu.getItem(1).setChecked(true);
