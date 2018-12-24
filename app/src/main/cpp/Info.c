@@ -649,7 +649,7 @@ Java_com_ugetdm_uget_lib_Info_getPriority (JNIEnv* env, jclass dataClass, jlong 
 	data = (UgInfo*)(intptr_t) pointer;
 	relation = ug_info_get(data, UgetRelationInfo);
 	if (relation)
-		result = relation->task.priority;
+		result = relation->priority;
 	else
 		result = UGET_PRIORITY_NORMAL;
 
@@ -664,7 +664,7 @@ Java_com_ugetdm_uget_lib_Info_setPriority (JNIEnv* env, jclass dataClass, jlong 
 
 	data = (UgInfo*)(intptr_t) pointer;
 	relation = ug_info_realloc(data, UgetRelationInfo);
-	relation->task.priority = priority;
+	relation->priority = priority;
 }
 
 JNIEXPORT jstring
