@@ -1,4 +1,10 @@
-#include <jni.h>
+/*
+ *
+ *   Copyright (C) 2018-2019 by C.H. Huang
+ *   plushuang.tw@gmail.com
+ */
+
+ #include <jni.h>
 #include <stddef.h>
 #include <pthread.h>
 

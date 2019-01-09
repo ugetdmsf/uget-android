@@ -1,3 +1,9 @@
+/*
+ *
+ *   Copyright (C) 2018-2019 by C.H. Huang
+ *   plushuang.tw@gmail.com
+ */
+
 #include <jni.h>
 #include <stdint.h>
 #include <pthread.h>
