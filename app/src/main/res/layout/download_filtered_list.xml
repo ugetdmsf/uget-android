@@ -4,26 +4,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-    <!--
-    -->
-    <LinearLayout
-        android:id="@+id/linearAd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical" >
-        <!--
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-2883534618110931/1238672609" />
-            -->
-    </LinearLayout>
-
     <Spinner
         android:id="@+id/state_spinner"
         android:layout_width="fill_parent"
@@ -44,14 +24,27 @@
         android:id="@+id/download_listview"
         android:padding="2dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:choiceMode="singleChoice"
         android:focusable="true" />
-    <!--
-    <View
-        android:id="@+id/download_list_empty"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    -->
+
+    <LinearLayout
+        android:id="@+id/linearAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+        <!--
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-2883534618110931/1238672609" />
+            -->
+    </LinearLayout>
+
 </LinearLayout>

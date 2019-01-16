@@ -4,6 +4,15 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
+    <ListView
+        android:id="@+id/download_listview"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        android:focusable="true" />
+
     <LinearLayout
         android:id="@+id/linearAd"
         android:layout_width="wrap_content"
@@ -21,19 +30,4 @@
             -->
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/download_listview"
-        android:padding="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:choiceMode="singleChoice"
-        android:focusable="true" />
-
-    <!--
-    <View
-        android:id="@+id/download_list_empty"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    -->
 </LinearLayout>
