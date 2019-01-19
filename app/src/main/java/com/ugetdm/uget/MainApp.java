@@ -355,7 +355,7 @@ public class MainApp extends Application {
         logAppend ("App.createDefaultCategory() create.");
         cNodePointer = Node.create();
         logAppend ("App.createDefaultCategory() setData.");
-        Info.set(Node.data(cNodePointer), categoryData);
+        Info.set(Node.info(cNodePointer), categoryData);
         categoryData = null;
 
         logAppend ("App.createDefaultCategory() addCategoryAndNotify.");
@@ -496,7 +496,7 @@ public class MainApp extends Application {
         pointer = Node.getNthChild(downloadAdapter.pointer, nthDownload);
         if (pointer == 0)
             return null;
-        pointer = Node.data(pointer);
+        pointer = Node.info(pointer);
 
         downloadData = new Download();
         Info.get(pointer, downloadData);
@@ -663,7 +663,7 @@ public class MainApp extends Application {
         dNodePointer = Node.getNthChild(cNodePointer, nth);
         if (dNodePointer == 0)
             return false;
-        if ((Info.getGroup(Node.data(dNodePointer)) & Node.Group.active) > 0)
+        if ((Info.getGroup(Node.info(dNodePointer)) & Node.Group.active) > 0)
             return false;
 
         return queueNthDownload(nth);
@@ -676,7 +676,7 @@ public class MainApp extends Application {
 
         // get download node from category node
         nodePointer = Node.getNthChild(downloadAdapter.pointer, nthDownload);
-        result = Info.getPriority(Node.data(nodePointer));
+        result = Info.getPriority(Node.info(nodePointer));
         return result;
     }
 
@@ -687,7 +687,7 @@ public class MainApp extends Application {
         // get download from category
         nodePointer = Node.getNthChild(downloadAdapter.pointer, nth);
         if (nodePointer != 0)
-            Info.setPriority(Node.data(nodePointer), priority);
+            Info.setPriority(Node.info(nodePointer), priority);
     }
 
     public long getNthDownloadNode(int nthDownload) {

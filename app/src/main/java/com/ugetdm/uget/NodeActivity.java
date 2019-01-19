@@ -39,7 +39,7 @@ public class NodeActivity extends Activity {
 //	private TabWidget   tabWidget;
 	private Bundle      bundle;
 	private long        nodePointer;
-	private long        dataPointer;
+	private long        infoPointer;
 	private boolean     isCategory;
 	private boolean     isCreation;
 	private boolean     isMultiple;
@@ -67,9 +67,9 @@ public class NodeActivity extends Activity {
 		isCategory = bundle.getBoolean("isCategory");
 		isCreation = bundle.getBoolean("isCreation");
 		isMultiple = bundle.getBoolean("isMultiple");
-		dataPointer = Node.data(nodePointer);
-		Info.get(dataPointer, categoryData);
-		Info.ref(dataPointer);
+		infoPointer = Node.info(nodePointer);
+		Info.get(infoPointer, categoryData);
+		Info.ref(infoPointer);
 
 		initView();
         initAd();
@@ -80,7 +80,7 @@ public class NodeActivity extends Activity {
 	protected void onDestroy() {
 		nthCategoryReal = -1;  // reset this static value
 		super.onDestroy();
-		Info.unref(dataPointer);
+		Info.unref(infoPointer);
         app.adManager.destroy(adView);
     }
 
@@ -139,7 +139,7 @@ public class NodeActivity extends Activity {
 				for (int index = 0; index < nItem;  index++) {
 					long pointer;
 					pointer = Node.getNthChild(app.core.nodeReal, index);
-					pointer = Node.data(pointer);
+					pointer = Node.info(pointer);
 					// groupId,  itemId,  order,  string
 					menu.add(0, index, index, Info.getName(pointer)).setChecked(index == nthCategoryReal);
 				}
@@ -151,10 +151,10 @@ public class NodeActivity extends Activity {
                                 categoryData = new Category();
                                 long pointer = Node.getNthChild(app.core.nodeReal, nthCategoryReal);
                                 if (pointer != 0) {
-                                	pointer = Node.data(pointer);
+                                	pointer = Node.info(pointer);
 									Info.get(pointer, categoryData);
                                     categoryData.name = null;
-									Info.set(dataPointer, categoryData);
+									Info.set(infoPointer, categoryData);
                                     setSetting(categoryData, true);
                                 }
 								return true;
@@ -300,14 +300,14 @@ public class NodeActivity extends Activity {
 		}
 
 		if (isCategory) {
-			Info.set(dataPointer, categoryData);
+			Info.set(infoPointer, categoryData);
 			if (isCreation)
 				app.addCategoryAndNotify(nodePointer);
 			else
 				app.categoryAdapter.notifyDataSetChanged();
 		}
 		else {
-			Info.set(dataPointer, (Download)categoryData);
+			Info.set(infoPointer, (Download)categoryData);
 			if (isCreation) {
 				EditText editText;
 				editText = (EditText) findViewById(R.id.dnode_uri_editor);
@@ -346,11 +346,11 @@ public class NodeActivity extends Activity {
 				public boolean onMenuItemClick(MenuItem item) {
 					switch (item.getItemId()) {
 					case R.id.menu_download_start_auto:
-						Info.setGroup(dataPointer, 0);
+						Info.setGroup(infoPointer, 0);
 						break;
 
 					case R.id.menu_download_start_manually:
-						Info.setGroup(dataPointer, Node.Group.pause);
+						Info.setGroup(infoPointer, Node.Group.pause);
 						break;
 					}
 					return true;
@@ -359,7 +359,7 @@ public class NodeActivity extends Activity {
 		);
 
 		Menu menu  = popupMenu.getMenu();
-		int  state = Info.getGroup(dataPointer);
+		int  state = Info.getGroup(infoPointer);
 		switch (state) {
 		case Node.Group.pause:
 			menu.getItem(1).setChecked(true);

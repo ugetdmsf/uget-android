@@ -72,7 +72,7 @@ public class DownloadAdapter extends BaseAdapter {
     public View getView (int position, View convertView, ViewGroup parent)
     {
         long       nodePointer;
-        long       dataPointer;
+        long       infoPointer;
         int        state = 0;
         Progress   progress = null;
         boolean    hasProgress = false;
@@ -94,13 +94,13 @@ public class DownloadAdapter extends BaseAdapter {
 
         nodePointer = Node.getNthChild(pointer, position);
         if (nodePointer != 0) {
-            dataPointer = Node.data(nodePointer);
-            state = Info.getGroup(dataPointer);
-            name = Info.getName(dataPointer);
-            message = Info.getMessage(dataPointer);
+            infoPointer = Node.info(nodePointer);
+            state = Info.getGroup(infoPointer);
+            name = Info.getName(infoPointer);
+            message = Info.getMessage(infoPointer);
             // get progress info
             progress = new Progress();
-            hasProgress = Info.get(dataPointer, progress);
+            hasProgress = Info.get(infoPointer, progress);
         }
 
         // get imageView(status icon) & textView(name)

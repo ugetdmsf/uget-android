@@ -324,7 +324,7 @@ public class TimeoutHandler {
                     // create node and add it
                     command.data.uri = command.uris[index];
                     dNodePointer = Node.create();
-                    Info.set(Node.data(dNodePointer), command.data);
+                    Info.set(Node.info(dNodePointer), command.data);
                     app.core.addDownload(dNodePointer, cNodePointer, false);
                 }
                 // notify

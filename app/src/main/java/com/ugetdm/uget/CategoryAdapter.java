@@ -63,7 +63,7 @@ public class CategoryAdapter extends BaseAdapter implements SpinnerAdapter {
     public View getView (int position, View convertView, ViewGroup parent)
     {
         long      nodePointer;
-        long      dataPointer;
+        long      infoPointer;
         TextView  textViewQuantity;
         TextView  textView;
         ImageView       imageView;
@@ -89,8 +89,8 @@ public class CategoryAdapter extends BaseAdapter implements SpinnerAdapter {
         }
         else {
             nodePointer = Node.getNthChild(pointer, position - 1);
-            dataPointer = Node.data(nodePointer);
-            textView.setText (Info.getName(dataPointer));
+            infoPointer = Node.info(nodePointer);
+            textView.setText (Info.getName(infoPointer));
         }
         textViewQuantity.setText(Integer.toString(Node.nChildren(nodePointer)));
 

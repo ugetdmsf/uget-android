@@ -28,7 +28,7 @@ public class Node {
     public native static long    parent(long nodePointer);
     public native static long    children(long nodePointer);
     public native static int     nChildren(long nodePointer);
-    public native static long    data(long nodePointer);
+    public native static long    info(long nodePointer);
 
     public native static int     getPosition(long nodePointer, long childPointer);
 

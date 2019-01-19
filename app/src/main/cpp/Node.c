@@ -109,7 +109,7 @@ Java_com_ugetdm_uget_lib_Node_nChildren (JNIEnv* env, jclass nodeClass, jlong po
 }
 
 JNIEXPORT jlong
-Java_com_ugetdm_uget_lib_Node_data (JNIEnv* env, jclass nodeClass, jlong pointer)
+Java_com_ugetdm_uget_lib_Node_info (JNIEnv* env, jclass nodeClass, jlong pointer)
 {
 	UgetNode*  node;
 
